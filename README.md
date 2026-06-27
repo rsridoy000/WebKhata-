@@ -1,1 +1,1 @@
-[# WebKhata](https://github.com/rsridoy000/WebKhata-)
+[# WebKhata](https://rsridoy000.github.io/WebKhata-/)
