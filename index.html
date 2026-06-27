@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ওয়েবখাতা - ডিজিটাল নোটবুক</title>
+    <link rel="shortcut icon" type="x-icon" href="Logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
+</head>
+<body>
+
+    <!-- হেডার সেকশন -->
+    <header>
+        <div class="logo">ওয়েবখাতা
+        </div>
+        <nav>
+            <a href="#home">হোম</a>
+            <a href="#login">লগইন</a>
+            <a href="#section1">প্যাকেজ</a>
+            <a href="#service1">সেবা</a>
+        </nav>
+    </header>
+    <!-- হেডার সেকশন শেষ-->
+
+
+    <!-- হোম সেকশন -->
+    <section id="home">
+        <div class="hero">
+            <img src="Nibondhon.jpg" class="clas width="350px" height="280px" >
+            <h1>ওয়েবখাতায় স্বাগতম</h1>
+            <p>আপনার ব্যক্তিগত ডিজিটাল নোটবুক, যেখানে আপনার কাজ থাকে সবসময় আপনার কাছে।</p>
+            <button onclick="window.location.href='#login'" class="bt">লগইন করুন</button>
+        </div>
+    </section><br><br><br>
+ <!-- হোম সেকশন শেষ-->
+
+
+ <!--লগইন সেকশন-->
+    <section id="login">
+        <h2>আপনার অ্যাকাউন্টে লগইন করুন</h2>
+        <form onsubmit="handleLogin(event)">
+            <input type="text" id="text" class="a" placeholder="প্রতিষ্ঠানের নাম" required><br>
+            <input type="email" id="email" class="a" placeholder="ইমেইল" required><br>
+            <input type="password" id="password" class="a" placeholder="পাসওয়ার্ড" required><br>
+            <button type="submit" class="btn">লগইন করুন</button>
+        </form>
+        <p id="loginMessage"></p>
+    </section>
+     <!-- লগইন সেকশন শেষ-->
+
+
+  <!--প্যাকেজ সেকশন-->
+    <section class="section1" id="section1">
+        <h2> প্যাকেজ সমূহ (Packages)</h2>
+        <div class="plans">
+            <div class="plan">
+                <h3>প্রাথমিক প্যাকেজ</h3>
+                <p>সেটাপ চার্জঃ ২৫০০৳ +মাসিক চার্জঃ ১০০০৳<p>
+                <p>ফ্রি ৫০০ এস এম এস অন্তর্ভূক্ত</p>
+                <p class="price">১০০০৳/মাস</p>
+            </div>
+            
+            <div>
+                <button id="payBtn1"  > ক্রয় করুন</button>
+                <div class="payment-options" id="paymentOptions1">
+                    <h3>পেমেন্ট মাধ্যম নির্বাচন করুন</h3>
+                    <button class="payment-method" onclick="payWith('Bkash')">বিকাশ</button>
+                    <button class="payment-method" onclick="payWith('Rocket')">রকেট</button>
+                    <button class="payment-method" onclick="payWith('Nagad')">নগদ</button>
+                    <button class="payment-method" onclick="payWith('Card')">কার্ড</button>
+                </div>
+            </div> 
+        </div>
+        <div class="plans">
+            <div class="plan">
+                <h3>স্ট্যান্ডার্ড প্যাকেজ</h3>
+                <p>সেটাপ চার্জঃ ৩৫০০৳ +মাসিক চার্জঃ ১৫০০৳<p>
+                <p>ফ্রি ৭০০ এস এম এস অন্তর্ভূক্ত</p>
+                <p class="price">১৫০০৳/মাস</p>
+            </div>
+            <div>
+                <button id="payBtn2" > ক্রয় করুন</button>
+                <div class="payment-options" id="paymentOptions2">
+                    <h3>পেমেন্ট মাধ্যম নির্বাচন করুন</h3>
+                    <button class="payment-method" onclick="payWith('Bkash')">বিকাশ</button>
+                    <button class="payment-method" onclick="payWith('Rocket')">রকেট</button>
+                    <button class="payment-method" onclick="payWith('Nagad')">নগদ</button>
+                    <button class="payment-method" onclick="payWith('Card')">কার্ড</button>
+                </div>
+            </div>
+        </div>
+        <div class="plans">
+            <div class="plan">
+                <h3>প্রিমিয়াম প্যাকেজ</h3>
+                <p>সেটাপ চার্জঃ ৫০০০৳ +মাসিক চার্জঃ ২০০০৳<p>
+                <p>ফ্রি ১৫০০ এস এম এস অন্তর্ভূক্ত</p>
+                <p class="price">২০০০৳/মাস</p>
+            </div>
+            <div>
+                <button id="payBtn3" > ক্রয় করুন</button>
+                <div class="payment-options" id="paymentOptions3">
+                    <h3>পেমেন্ট মাধ্যম নির্বাচন করুন</h3>
+                    <button class="payment-method" onclick="payWith('Bkash')">বিকাশ</button>
+                    <button class="payment-method" onclick="payWith('Rocket')">রকেট</button>
+                    <button class="payment-method" onclick="payWith('Nagad')">নগদ</button>
+                    <button class="payment-method" onclick="payWith('Card')">কার্ড</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--প্যাকেজ সেকশন শেষ-->
+    
+    
+     <!-- সেবা সেকশন -->
+     <section class="service" id="service1">
+        <h3 class="h">ওয়েবখাতার বৈশিষ্ঠ্য সমূহ</h3>
+        <div class="boxes">
+            <div class="box">
+                <img src="note.jpg" alt="error">
+                <h3>নোট শেয়ার করুন</h3>
+                <p>অগ্রগতির জন্য আপনার বন্ধু ও সহপাঠীদের সাথে শেয়ার করুন।</p>
+            </div><div class="box">
+                <img src="oder.jpg" alt="error">
+                <h3>অর্ডার ম্যানেজমেন্ট</h3>
+                <p>নির্দিষ্ট কিছু অর্ডার করুন যেকোনো সময়।</p>
+            </div>
+            <div class="box">
+                <img src="security.png" alt="error">
+                <h3>নিরাপত্তা ও গোপনীয়তা</h3>
+                <p>আপনার তথ্য সর্বদায় সুরক্ষীত রাখায় আমাদের কাজ।</p>
+            </div>
+            <div class="box">
+                <img src="Services.jpg" alt="error">
+                <h3>কাস্টমার সার্ভিস</h3>
+                <p>২৪/৭ সর্বদায় সাপোর্ট ব্যবস্থা।</p>
+            </div>
+            <div class="box">
+                <img src="multimedia.png" alt="error">
+                <h3>মাল্টিমিডিয়া সংযোজন</h3>
+                <p>ডকুমেন্ট স্ক্যান করে সংরক্ষণের সুবিধা রয়েছে। </p>
+            </div>
+            <div class="box">
+                <img src="cloud.png" alt="error">
+                <h3>ক্লাউড স্টোরেজ সমর্থন</h3>
+                <p>সব ধরনের ডাটা সেভ করে রাখা যায় এবং হারানোর কোনো সম্ভাবনা নাই।</p>
+            </div>
+            <div class="box">
+                <img src="search.png" alt="error">
+                <h3>সার্চ ও সংগঠনের সুবিধা</h3>
+                <p>সেভ করা ডাটা বা বিভিন্ন জিনিস খুজে পাওয়ার ব্যাবস্থা রয়েছে। </p>
+            </div>
+            <div class="box">
+                <img src="multiuser.png" alt="error">
+                <h3>মাল্টি-ইউজার সমর্থন</h3>
+                <p>একাধিক ব্যবহারকারী একই নোট বা ফাইলে একসঙ্গে কাজ করতে পারে।</p>
+            </div>
+        </div>
+        
+     </section>
+     <!-- সেবা সেকশন শেষ--ষ
+
+
+
+       <!-- যোগাযোগ সেকশন --> 
+     <section class="sec2" style="text-align: center; margin: 2rem 0;">
+        <h2>যোগাযোগ করুন (Contact Us)</h2> 
+        <p>
+            ই-মেইলঃ 
+            <a href="mailto:rsridoykhan000@gmail.com">customerservice@gmail.com</a>
+        </p>  
+        <p>মোবাইলঃ 01608 47 52 91 </p> 
+        <p>ডেমোঃ ---.webkhata.com</p>
+
+        <p>
+        <a href="https://wa.me/8801787026652" target="_blank" style="text-decoration: none; color: #25D366; font-weight: bold;">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="What sApp Chat" style="width: 30px; vertical-align: middle; margin-right: 0.5rem;" >
+
+           WhatsApp Chat
+      </a>
+      </p>
+    </section>
+ <!-- যোগাযোগ সেকশন শেষ-->
+      
+     
+
+    <!-- ফুটার সেকশন -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; ২০২৫ ওয়েবখাতা। সমস্ত অধিকার সংরক্ষিত।</p>
+            <div class="footer-links">
+                <a href="#">গোপনীয়তা নীতি</a>
+                <a href="#">সেবার শর্তাবলী</a>
+            </div>
+        </div>
+
+        
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
